@@ -1,5 +1,5 @@
-import { Todo } from "../models/todo.model";
-import { app } from "../config/express";
+import { Todo } from "../models/todo.model.js";
+import { app } from "../config/express.js";
 
 
 app.post("/todo", async (req, res) => {

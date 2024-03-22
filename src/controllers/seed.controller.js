@@ -1,4 +1,4 @@
-import { app } from "../app";
+import { app } from "../config/express.js";
 
 app.get("/seed", async (req, res) => {
     await Todo.remove({});
