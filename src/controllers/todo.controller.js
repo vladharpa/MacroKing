@@ -1,3 +1,4 @@
+import { Todo } from "../models/todo.model";
 import { app } from "../config/express";
 
 
