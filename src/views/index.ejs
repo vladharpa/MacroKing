@@ -17,8 +17,10 @@
     <ul>
         <% for (todo of todos) { %>
         
-            <li><%= todo.text %> 
-            
+            <li>
+                <a href="/todo/<%= todo._id %>">
+                    <%= todo.text %>
+                </a>
                 <form action="/todo/<%= todo._id %>?_method=delete" method="post">
                     <input type="submit" value="delete todo">
                 </form>
