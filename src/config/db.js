@@ -2,13 +2,9 @@ import mongoose from 'mongoose';
 import dotenv from "dotenv";
 dotenv.config();
 const MONGO_HOST = process.env.MONGO_HOST;
-const CONFIG = {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-};
 
 // Establish Connection
-mongoose.connect(MONGO_HOST, CONFIG);
+mongoose.connect(MONGO_HOST);
 
 // Events for when connection opens/disconnects/errors
 mongoose.connection

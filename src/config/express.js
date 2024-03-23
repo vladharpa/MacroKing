@@ -1,7 +1,7 @@
 import express, { urlencoded } from "express" // import express
 import morgan from "morgan";
 import methodOverride from "method-override";
-export const app = express()
+export const app = express();
 
 /////////////////////////////////////////////////////
 // Middleware
