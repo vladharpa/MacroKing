@@ -1,0 +1,4 @@
+form label, form input {
+    display: block;
+    margin-bottom: 10px; /* Optional: Add some vertical spacing between elements */
+}

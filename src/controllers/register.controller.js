@@ -4,9 +4,10 @@ import  path  from "path";
 
 
 
+const fileDirectory = path.resolve('src','public');
 app.get('/register',async (req,res)=>{
-    const fileDirectory = path.resolve('src','public');
     res.sendFile('register.html',{root:fileDirectory });
+    
 })
 
 app.post('/register',async (req,res)=>{
@@ -18,7 +19,7 @@ app.post('/register',async (req,res)=>{
         {
             inUse=false;   
             console.log('Email already used');
-            res.redirect('/register');
+            res.sendFile('register.html',{root:fileDirectory });
             
         }
         if(user.password==req.body.password)
@@ -26,7 +27,7 @@ app.post('/register',async (req,res)=>{
 
             inUse=false;
             console.log('Password already used');
-            res.redirect('/register');
+            res.sendFile('register.html',{root:fileDirectory });
             
         }
     }
