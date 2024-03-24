@@ -11,31 +11,34 @@ app.get('/register', async (req,res) => {
 });
 
 app.post('/register',async (req,res)=>{
-    // let inUse=true;
-    // const UserDB = await Users.find();
-    // for(let user of UserDB)
-    // {
-    //     if(user.email==req.body.email)
-    //     {
-    //         inUse=false;   
-    //         console.log('Email already used');
-    //         res.render('register.ejs',{inUse});
+    let inUse=false;
+    const UserDB = await Users.find();
+    for(let user of UserDB)
+    {
+        if(user.email==req.body.email)
+        {
+            inUse=true;   
+            console.log('erroare');
+            res.render('register.ejs',{inUse:inUse});
             
-    //     }
-    //     if(user.password==req.body.password)
-    //     {
+        }
+        if(user.password==req.body.password)
+        {
 
-    //         inUse=false;
-    //         console.log('Password already used');
-    //         res.render('register.ejs',{inUse});
+            inUse=false;
+            console.log('erroare');
+            res.render('register.ejs',{inUse:inUse});
             
-    //     }
-    // }
-    // if(inUse==true)
-    // {
-    //     console.log("Success");
-    //     Users.create({email:req.body.email , password:req.body.password});
-    //     res.render('register.ejs',{inUse});
-    // }
-    res.render('register.ejs', { inUse: true });
+        }
+    }
+    if(inUse==false)
+    {
+        console.log("succes");
+        await Users.create({email:req.body.email , password:req.body.password});
+        res.sendFile('D:/WEB/Projects/MacroKing/src/public/registerSuccesfull.html')
+        
+    }
+
+
+    
 })
