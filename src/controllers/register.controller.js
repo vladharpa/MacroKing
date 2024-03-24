@@ -4,9 +4,9 @@ import  path  from "path";
 
 
 
-const fileDirectory = path.resolve('src','public');
+const fileDirectory = path.resolve('src','views');
 app.get('/register',async (req,res)=>{
-    res.sendFile('register.html',{root:fileDirectory });
+    res.render('register.ejs',{root:fileDirectory });
     
 })
 
@@ -19,7 +19,7 @@ app.post('/register',async (req,res)=>{
         {
             inUse=false;   
             console.log('Email already used');
-            res.sendFile('register.html',{root:fileDirectory });
+            res.render('register.ejs',{inUse});
             
         }
         if(user.password==req.body.password)
@@ -27,7 +27,7 @@ app.post('/register',async (req,res)=>{
 
             inUse=false;
             console.log('Password already used');
-            res.sendFile('register.html',{root:fileDirectory });
+            res.render('register.ejs',{inUse});
             
         }
     }
@@ -35,7 +35,7 @@ app.post('/register',async (req,res)=>{
     {
         console.log("Success");
         Users.create({email:req.body.email , password:req.body.password});
-        res.redirect('/register');
+        res.render('register.ejs',{inUse});
     }
 
 })
