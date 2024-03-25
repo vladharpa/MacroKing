@@ -1,9 +1,12 @@
 import { Schema, model } from "mongoose";
 
 const alimentSchema = new Schema({
-    calorii: String,
-    protein:String,
-    carbs:String,
-    fats:String
+    name:String,
+    calories: Number,
+    protein:Number,
+    carbs:Number,
+    fat:Number
+    
+    
 });
-export const Alimente = model("aliment", alimentSchema);
+export const Aliment = model("aliment", alimentSchema);
