@@ -5,6 +5,8 @@ import { app } from "./config/express.js";
 import "./controllers/register.controller.js";
 import "./controllers/seed.controller.js";
 import "./controllers/aliment.controller.js";
+import "./controllers/index.controller.js";
+
 
 
 const SERVER_PORT = process.env.SERVER_PORT;
