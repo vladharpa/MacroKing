@@ -19,8 +19,15 @@
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn navbar-toggler" type="submit">Search</button>
               </form>
-              <button id="register-btn" class="btn navbar-toggler" type="button" aria-label="Toggle navigation">Register</button>
-              <button id="login-btn" class="btn navbar-toggler" type="button" aria-label="Toggle navigation">Log in</button>
+
+              <form action="/register" method="GET">
+                <input id="register-btn" class="btn navbar-toggler" type="submit" value="REGISTER">
+              </form>
+              <form action="login" method="GET">
+                <input id="login-btn" class="btn navbar-toggler" type="submit" value="LOGIN">
+              </form>
+               
+              
             <button class="btn navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
               <span class=" navbar-toggler-icon"></span>
             </button>
@@ -66,5 +73,6 @@
         
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
+    <script src="./js/index.js"></script>
+  </body>
 </html>

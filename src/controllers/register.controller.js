@@ -5,8 +5,9 @@ import  path  from "path";
 
 
 const fileDirectory = path.resolve('src','views');
+
 app.get('/register', async (req,res) => {
-    res.render('register.ejs', {inUse: false});
+    res.render('register', {inUse: false});
     
 });
 
@@ -19,7 +20,7 @@ app.post('/register',async (req,res)=>{
         {
             inUse=true;   
             console.log('erroare');
-            res.render('register.ejs',{inUse:inUse});
+            res.render('./register.ejs',{inUse:inUse});
             
         }
         if(user.password==req.body.password)
@@ -27,7 +28,7 @@ app.post('/register',async (req,res)=>{
 
             inUse=false;
             console.log('erroare');
-            res.render('register.ejs',{inUse:inUse});
+            res.render('./register.ejs',{inUse:inUse});
             
         }
     }
