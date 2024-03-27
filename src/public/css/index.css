@@ -72,3 +72,7 @@ body {
     top:22px;
     left:20px;
 }
+a#loginLink{
+    text-decoration:none; 
+    cursor:pointer;  
+}
