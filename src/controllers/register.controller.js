@@ -36,7 +36,7 @@ app.post('/register',async (req,res)=>{
     {
         console.log("succes");
         await Users.create({email:req.body.email , password:req.body.password});
-        res.sendFile('D:/WEB/Projects/MacroKing/src/public/registerSuccesfull.html')
+        res.sendFile('/registerSuccesfull.html',{root:'src/public'});
         
     }
 
