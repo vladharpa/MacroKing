@@ -1,0 +1,71 @@
+html {
+    overflow: hidden;
+}
+#register-btn{
+    margin-left:210px;
+}
+#login-btn{
+    margin-right:10px;
+    margin-left:10px;   
+}
+
+nav.navbar {
+    height: 80px;
+    z-index: 1000;
+    width: 100%;
+    
+    justify-content:right;
+}
+
+
+
+#avocado {
+    position: absolute;
+    left: 122px;
+}
+a:hover{
+    color:white;
+}
+
+
+
+
+
+#cover {
+    width: 100%;
+    height: 1000px;
+    position: relative;
+    top: 500px;
+    background: rgb(25, 110, 48);
+    background: linear-gradient(0deg, rgba(25, 110, 48, 1) 30%, rgba(25, 110, 48, 0.5830707282913166) 68%, rgba(255, 255, 255, 0) 100%);
+}
+
+#foodsImg {
+    
+    position: absolute;
+}
+
+
+
+body {
+    height: 100vh;
+}
+
+
+
+#foodsImg{
+    width:100%;
+    height:1500px;
+}
+#titlu{
+    position:absolute;
+    top:22px;
+    left:20px;
+}
+a#loginLink{
+    text-decoration:none; 
+    cursor:pointer;  
+}
+input{
+    color:White;
+}

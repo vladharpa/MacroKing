@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
     
-    <link rel="stylesheet" href="./css/register.css">
+    <link rel="stylesheet" href="/css/register.css">
     
 </head>
 <body>
@@ -21,11 +21,17 @@
         <input type="password" id="confirm_password" name="confirm_password" required>
 
         <input type="submit" value="Register">
-        <% if (inUse) { %>
+        <% if (inUse=="email") { %>
             <p>There is already an account associated with this email address.</p>
         <% } %>
-
-
+        <% if (inUse=="password") { %>
+            <p>There is already an account associated with this password.</p>
+        <% } %>
+        <% if (inUse=="ConfirmareEsuata") { %>
+            <p>Confirmarea parolei a esuat</p>
+        <% } %>
+            
     </form>
+    
 </body>
 </html>
