@@ -1,12 +1,5 @@
 html {
     overflow: hidden;
-   
-}
-
-
-* {
-    padding: 0px;
-    margin: 0px;
 }
 #register-btn{
     margin-left:210px;
@@ -30,10 +23,11 @@ nav.navbar {
     position: absolute;
     left: 122px;
 }
-
-.form-control {
-    background-color: rgb(25, 110, 30);
+a:hover{
+    color:white;
 }
+
+
 
 
 
@@ -47,7 +41,7 @@ nav.navbar {
 }
 
 #foodsImg {
-    z-index: -1;
+    
     position: absolute;
 }
 
@@ -57,11 +51,7 @@ body {
     height: 100vh;
 }
 
-.text-bg-success {
-    height: 115px;
-    
-    width: 100%;
-}
+
 
 #foodsImg{
     width:100%;
@@ -75,4 +65,7 @@ body {
 a#loginLink{
     text-decoration:none; 
     cursor:pointer;  
+}
+input{
+    color:White;
 }
