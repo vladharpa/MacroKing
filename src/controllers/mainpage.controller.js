@@ -13,7 +13,5 @@ app.get('/mainpage',(req,res)=>{
 app.post('/mainpage',async (req,res)=>{
     
     let alimentDB = await Aliment.find({name:req.body.foodName});
-    let objects = await Aliment.find();
-    
     res.render('../views/mainpage.ejs',{ aliment: alimentDB[0]});
 })
