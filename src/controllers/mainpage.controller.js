@@ -1,4 +1,4 @@
-import { Aliment } from "../models/aliment.model.js";
+import { Recipe } from "../models/recipe.model.js";
 import { app } from "../config/express.js";
 import  path  from "path";
 
@@ -12,6 +12,12 @@ app.get('/mainpage',(req,res)=>{
 
 app.post('/mainpage',async (req,res)=>{
     
-    let alimentDB = await Aliment.find({name:req.body.foodName});
-    res.render('../views/mainpage.ejs',{ aliment: alimentDB[0]});
+    let description = req.body.description;
+    let macronutrients=req.body.macronutrients;
+    let image=req.body.image;
+    image = Buffer.from(image);
+    image = image.toString('base64');
+    
+    Recipe.create({description:description,macronutrients:macronutrients,image:image})
+    res.redirect('/mainpage')
 })
