@@ -17,7 +17,10 @@ app.post('/mainpage',async (req,res)=>{
     let image=req.body.image;
     image = Buffer.from(image);
     image = image.toString('base64');
+    if(image!="" && macronutrients!="" && description!="")
+    {
+        await Recipe.create({description:description,macronutrients:macronutrients,image:image})
+    }
     
-    Recipe.create({description:description,macronutrients:macronutrients,image:image})
     res.redirect('/mainpage')
 })
