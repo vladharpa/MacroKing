@@ -4,7 +4,7 @@ import "./config/db.js";
 import { app } from "./config/express.js";
 import "./controllers/register.controller.js";
 import "./controllers/seed.controller.js";
-import "./controllers/aliment.controller.js";
+import "./controllers/mainpage.controller.js";
 import "./controllers/index.controller.js";
 
 
