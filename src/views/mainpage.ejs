@@ -9,33 +9,34 @@
         <link href ="/css/mainpage.css" rel="stylesheet">
     </head>
 <body>
-    <img id="backgroundImg" src="/images/mainpage.jpg">
+    <img id="backgroundImg" src="./images/background.jpg">
     <%- include('SimpleNavbar.ejs') %>
-    
-        <form action="/mainpage" method="post" name="recipe">
+    <div class="interesting-shape">
+        <form class="form-horizontal form-group" action="/mainpage" method="post" name="recipe">
+            
             <h2 class="formelement">Insert recipe</h2>
             <label class="formelement">
                 Name:
             </label>
-                <input class="formelement" type="text" name="Name">
+                <input class="formelement form-control" id="inputEmail3"type="text" name="Name">
             <label class="formelement">
                Ingredients:  
             </label>
-            <textarea class="formelement"  name="Ingredients" rows="5" cols="20"></textarea>
+            <textarea class="form-control formelement"  name="Ingredients" rows="5" cols="20"></textarea>
             <label class="formelement">
                 Preparation mode:
             </label>
-            <textarea class="formelement" name="PreparationMode" rows="10" cols="40"></textarea>
+            <textarea class="form-control formelement" name="PreparationMode" rows="10" cols="40"></textarea>
             <label class="formelement">
                 KiloCalories:
             </label>
-            <input class="formelement" type="text" name="Calories">
+            <input class="form-control formelement" type="text" name="Calories">
             <label class="formelement">
                 Macronutrients:
             </label>
-            <textarea class="formelement" name="Macronutrients"></textarea>
-            <input class="formelement" type="file" placeholder='upload a photo' name="image">
-            <input class="formelement" type="submit" value="create recipe">
+            <textarea class="form-control formelement" name="Macronutrients"></textarea>
+            <input id="choose-file" class="formelement" type="file" placeholder='upload a photo' name="image">
+            <input id="create-btn" class="form-control formelement btn btn-primary mb-2"  type="submit" value="Create recipe">
             <% if (error == 'name') { %>    
                 <div class="alert alert-warning error fade show" role="alert">Please complete the <%= error %> field!</div>      
             <% } else if (error == 'ingredients') { %>
@@ -52,13 +53,12 @@
                          
                      
                  
-             
+         
         </form>
+    </div> 
+        <h1 class="backgroundTitle">Create your own recipies.<br>Counting calories <br>doesn't have to be <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hard!</h1>
         
         
-        
-        
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

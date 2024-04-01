@@ -1,8 +1,8 @@
 import { Recipe } from "../models/recipe.model.js";
 import { app } from "../config/express.js";
 import  path  from "path";
-
 const fileDirectory = path.resolve('src','views');
+
 
 app.get('/mainpage',(req,res)=>{
 
@@ -17,7 +17,6 @@ app.post('/mainpage',async (req,res)=>{
     let macronutrients=req.body.Macronutrients;
     let kcalories=req.body.Calories;
     let image=req.body.image;
-
     image = Buffer.from(image);
     image = image.toString('base64');
     if (name == "") {
@@ -40,3 +39,5 @@ app.post('/mainpage',async (req,res)=>{
     
     
 })
+
+

@@ -7,10 +7,19 @@
 
 .formelement,.error{
     display:block;
-    margin-left:100px;
+    width:200px;
+    margin-top:5px;
+    position:relative;
+    
 }
-input{
-    color:black;
+form{
+    position:relative;
+    left:150px;
+    top:50px;
+}
+label{
+    font-family: 'Gill Sans, sans-serif';
+    color:white;
 }
 p{
     margin-left:60px;
@@ -22,3 +31,42 @@ p{
     margin-top:10px;
     margin-bottom:0px;
 }
+#choose-file{
+    width:250;
+    border-radius:5px;
+}
+.backgroundTitle{
+    font-size:70px;
+    color:white;
+    position:absolute;
+    left:30px;
+    top:500px;
+    font-family: 'EB Garamond'
+}
+#titlu{
+    font-family: 'EB Garamond';
+    font-size:30px;
+}
+#avocado{
+    margin-left:50px;
+}
+h2.formelement{
+    color:white;
+    font-family: 'EB Garamond';
+    
+}
+.interesting-shape {
+    width: 500px;
+    height: 900px;
+    background-color: #0E0E18; /* Darker shade of black */
+    position:absolute;
+    top:250px;
+    right:200px;
+    border-radius:10px;
+  }
+  #create-btn{
+    width:30%;
+    position:relative;
+    margin-left:20px;
+  }
+  
