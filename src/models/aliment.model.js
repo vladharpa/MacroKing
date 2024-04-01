@@ -9,7 +9,7 @@ const alimentSchema = new Schema({
         data:Buffer,
         contentType:String,
     },
-    macronutriients:{
+    macronutrients:{
         calories:Number,
         protein:Number,
         carbs:Number,  
