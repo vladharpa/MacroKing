@@ -25,7 +25,7 @@ app.post('/mainpage',async (req,res)=>{
         res.render('mainpage', { error: 'ingredients' });
     } else if (preparation == "") {
         res.render('mainpage', { error: 'preparation' });
-    } else if (kcalories == undefined) {
+    } else if (kcalories == "") {
         res.render('mainpage', { error: 'kcalories' });
     } else if (macronutrients == "") {
         res.render('mainpage', { error: 'macronutrients' });
