@@ -5,10 +5,20 @@
     position:absolute;
 }
 
-.formelement{
+.formelement,.error{
     display:block;
     margin-left:100px;
 }
 input{
     color:black;
+}
+p{
+    margin-left:60px;
+    color:rgb(255, 255, 255);
+}
+.error{
+    width:330px;
+    height:55px;
+    margin-top:10px;
+    margin-bottom:0px;
 }

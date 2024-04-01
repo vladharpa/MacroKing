@@ -15,17 +15,44 @@
         <form action="/mainpage" method="post" name="recipe">
             <h2 class="formelement">Insert recipe</h2>
             <label class="formelement">
-               Preparation mode:    
+                Name:
             </label>
-            <textarea class="formelement"  name="description" rows="5" cols="30"></textarea>
+                <input class="formelement" type="text" name="Name">
             <label class="formelement">
-                macronutrients:
+               Ingredients:  
             </label>
-            <textarea class="formelement" name="macronutrients" rows="6" cols="15"></textarea>
-          
-
+            <textarea class="formelement"  name="Ingredients" rows="5" cols="20"></textarea>
+            <label class="formelement">
+                Preparation mode:
+            </label>
+            <textarea class="formelement" name="PreparationMode" rows="10" cols="40"></textarea>
+            <label class="formelement">
+                KiloCalories:
+            </label>
+            <input class="formelement" type="text" name="Calories">
+            <label class="formelement">
+                Macronutrients:
+            </label>
+            <textarea class="formelement" name="Macronutrients"></textarea>
             <input class="formelement" type="file" placeholder='upload a photo' name="image">
             <input class="formelement" type="submit" value="create recipe">
+            <% if (error == 'name') { %>    
+                <div class="alert alert-warning error fade show" role="alert">Please complete the <%= error %> field!</div>      
+            <% } else if (error == 'ingredients') { %>
+                <div class="alert alert-warning error fade show" role="alert">Please complete the <%= error %> field!</div> 
+            <% } else if (error == 'preparation') { %>
+                <div class="alert alert-warning error fade show" role="alert">Please complete the <%= error %> field!</div> 
+            <% } else if (error == 'kcalories') { %>
+                <div class="alert alert-warning error fade show" role="alert">Please complete the <%= error %> field!</div> 
+            <% } else if (error == 'macronutrients') { %>
+                <div class="alert alert-warning error fade show" role="alert">Please complete the <%= error %> field!</div> 
+            <% } else if (error == 'image') { %>
+                <div class="alert alert-warning error fade show" role="alert">Please complete the <%= error %> field!</div> 
+            <% } %>
+                         
+                     
+                 
+             
         </form>
         
         
