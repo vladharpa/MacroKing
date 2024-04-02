@@ -11,33 +11,40 @@ app.get('/mainpage',(req,res)=>{
 });
 
 app.post('/mainpage',async (req,res)=>{
-    let name=req.body.Name;
-    let ingredients=req.body.Ingredients
-    let preparation = req.body.PreparationMode;
-    let macronutrients=req.body.Macronutrients;
-    let kcalories=req.body.Calories;
-    let image=req.body.image;
-    image = Buffer.from(image);
-    image = image.toString('base64');
-    if (name == "") {
-        res.render('mainpage', { error: 'name' });
-    } else if (ingredients == "") {
-        res.render('mainpage', { error: 'ingredients' });
-    } else if (preparation == "") {
-        res.render('mainpage', { error: 'preparation' });
-    } else if (kcalories == "") {
-        res.render('mainpage', { error: 'kcalories' });
-    } else if (macronutrients == "") {
-        res.render('mainpage', { error: 'macronutrients' });
-    } else if (image == "") {
-        res.render('mainpage', { error: 'image' });
-    } else {
-        await Recipe.create({ name: name, ingredients: ingredients, preparation: preparation, macronutrients: macronutrients, kcalories: kcalories, image: image });
-        res.redirect('/mainpage');
-    }
-    
-    
-    
+  
+const error = await validateRequestBody(req.body);
+console.log(error);
+if(error!='success') {
+  res.render('mainpage.ejs', { error:error });
+}   
 })
+
+async function validateRequestBody(recipe){
+    let {name,ingredients,preparationmode,calories,macronutrients,image}=recipe;
+    console.log(name,ingredients,preparationmode,calories,macronutrients,image);
+
+image = Buffer.from(image);
+image = image.toString('base64');
+
+console.log(name,ingredients,preparationmode,calories,macronutrients,image);
+
+if (name == "") {
+    return `name`;
+} else if (ingredients == "") {
+    return `ingredients`;
+} else if (preparationmode == "") {
+    return error
+} else if (calories == "") {
+    return `calories`;
+} else if (macronutrients == "") {
+    return `macronutrients`;
+} else if (image == "") {
+    return `image`;
+} else {
+    await Recipe.create({ name: name, ingredients: ingredients, preparation: preparation, macronutrients: macronutrients, kcalories: kcalories, image: image });
+    return `success`;
+}
+}
+
 
 

@@ -18,39 +18,29 @@
             <label class="formelement">
                 Name:
             </label>
-                <input class="formelement form-control" id="inputEmail3"type="text" name="Name">
+                <input class="formelement form-control" id="inputEmail3"type="text" name="name">
             <label class="formelement">
                Ingredients:  
             </label>
-            <textarea class="form-control formelement"  name="Ingredients" rows="5" cols="20"></textarea>
+            <textarea class="form-control formelement"  name="ingredients" rows="5" cols="20"></textarea>
             <label class="formelement">
                 Preparation mode:
             </label>
-            <textarea class="form-control formelement" name="PreparationMode" rows="10" cols="40"></textarea>
+            <textarea class="form-control formelement" name="preparationmode" rows="10" cols="40"></textarea>
             <label class="formelement">
                 KiloCalories:
             </label>
-            <input class="form-control formelement" type="text" name="Calories">
+            <input class="form-control formelement" type="text" name="calories">
             <label class="formelement">
                 Macronutrients:
             </label>
-            <textarea class="form-control formelement" name="Macronutrients"></textarea>
+            <textarea class="form-control formelement" name="macronutrients"></textarea>
             <input id="choose-file" class="formelement" type="file" placeholder='upload a photo' name="image">
             <input id="create-btn" class="form-control formelement btn btn-primary mb-2"  type="submit" value="Create recipe">
-            <% if (error == 'name') { %>    
+            <% if (error) { %>    
                 <div class="alert alert-warning error fade show" role="alert">Please complete the <%= error %> field!</div>      
-            <% } else if (error == 'ingredients') { %>
-                <div class="alert alert-warning error fade show" role="alert">Please complete the <%= error %> field!</div> 
-            <% } else if (error == 'preparation') { %>
-                <div class="alert alert-warning error fade show" role="alert">Please complete the <%= error %> field!</div> 
-            <% } else if (error == 'kcalories') { %>
-                <div class="alert alert-warning error fade show" role="alert">Please complete the <%= error %> field!</div> 
-            <% } else if (error == 'macronutrients') { %>
-                <div class="alert alert-warning error fade show" role="alert">Please complete the <%= error %> field!</div> 
-            <% } else if (error == 'image') { %>
-                <div class="alert alert-warning error fade show" role="alert">Please complete the <%= error %> field!</div> 
             <% } %>
-                         
+            
                      
                  
          
