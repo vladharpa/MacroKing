@@ -1,3 +1,6 @@
+body{
+    height:100vh;
+}
 html {
     scroll-behavior: smooth;
 }
@@ -43,6 +46,7 @@ a:hover{
 body {
     height: 100vh;
 }
+
 
 
 
@@ -124,7 +128,40 @@ input{
     font-family: 'EB Garamond'; 
     width:360px;
 }
-
-
+#cover1{
+    width:100%;
+    height:100%;
+    background-color:#0E0E18;
+    z-index:-10;
+}
+#gradient{
+position:relative;
+top:500px;
+width:100%;
+height:500px;
+background: rgb(25,110,48);
+background: linear-gradient(180deg, rgba(25,110,48,1) 27%, rgba(25,110,48,0.5886729691876751) 49%, rgba(25,110,48,0.3757878151260504) 70%, rgba(255,255,255,0) 100%);
+}
+#description{
+    text-align:center;
+    margin:auto;
+    position:relative;
+    top:220px;
+    
+    width:50%;
+    height:200px;
+    font-size:48px;
+    color:white;
+    font-family: 'EB Garamond'; 
+}
+#description{
+    opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.8s ease-out;
+}
+#description.appear{
+    opacity: 1;
+    transform: translateY(0);
+}
 
 
