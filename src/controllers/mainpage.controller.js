@@ -2,48 +2,46 @@ import { Recipe } from "../models/recipe.model.js";
 import { app } from "../config/express.js";
 import  path  from "path";
 const fileDirectory = path.resolve('src','views');
+const EMPTY_STRING = "";
 
-
-app.get('/mainpage',(req,res)=>{
-
-    res.render('mainpage',{error:""});
-
+app.get('/mainpage',(req, res)=>{
+    res.render('mainpage',{ error: "" });
 });
 
-app.post('/mainpage',async (req,res)=>{
-const error = await validateRequestBody(req.body);
-console.log(error);
-if(error!='success') {
-  res.render('mainpage.ejs', { error:error });
-}   
-})
+app.post('/mainpage', async (req, res) => {
+    const errorField = await validateRequestBody(req.body);
+    if(errorField) {
+        res.render('mainpage.ejs', { error: errorField });
+    } else {
+        const imageEncoded = Buffer.from(req.body.image, 'base64');
+        const recipe = {
+            ...req.body,
+            image: imageEncoded
+        }
+        await Recipe.create(recipe);
+    }
+});
 
-async function validateRequestBody(recipe){
-    let {name,ingredients,preparationmode,calories,macronutrients,image}=recipe;
-    console.log(name,ingredients,preparationmode,calories,macronutrients,image);
+async function validateRequestBody(requestBody){
+    let { name, ingredients, preparationmode, calories, macronutrients, image } = requestBody;
 
-image = Buffer.from(image);
-image = image.toString('base64');
-
-console.log(name,ingredients,preparationmode,calories,macronutrients,image);
-
-if (name == "") {
-    return `name`;
-} else if (ingredients == "") {
-    return `ingredients`;
-} else if (preparationmode == "") {
-    return error
-} else if (calories == "") {
-    return `calories`;
-} else if (macronutrients == "") {
-    return `macronutrients`;
-} else if (image == "") {
-    return `image`;
-} else {
-    await Recipe.create({ name: name, ingredients: ingredients, preparation: preparation, macronutrients: macronutrients, kcalories: kcalories, image: image });
-    return `success`;
+    if (name === EMPTY_STRING) {
+        return `name`;
+    }
+    if (ingredients === EMPTY_STRING) {
+        return `ingredients`;
+    } 
+    if (preparationmode === EMPTY_STRING) {
+        return error
+    }
+    if (calories === EMPTY_STRING) {
+        return `calories`;
+    }
+    if (macronutrients === EMPTY_STRING) {
+        return `macronutrients`;
+    }
+    if (image == EMPTY_STRING) {
+        return `image`;
+    }
+    return null;
 }
-}
-
-
-
