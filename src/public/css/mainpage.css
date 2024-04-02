@@ -1,6 +1,10 @@
 html{
   overflow: hidden;
   overflow-y:scroll;
+  height:100vh
+}
+body{
+    height:100%;
 }
 #backgroundImg{ 
     width:100%;
