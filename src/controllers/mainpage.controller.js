@@ -12,7 +12,7 @@ app.get('/mainpage',(req,res)=>{
 
 app.post('/mainpage',async (req,res)=>{
     let name=req.body.Name;
-    let ingredients=req.body.Ingredients
+    let ingredients=req.body.Ingredients;
     let preparation = req.body.PreparationMode;
     let macronutrients=req.body.Macronutrients;
     let kcalories=req.body.Calories;
