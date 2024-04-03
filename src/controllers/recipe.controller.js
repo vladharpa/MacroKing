@@ -5,13 +5,13 @@ const fileDirectory = path.resolve('src','views');
 const EMPTY_STRING = "";
 
 app.get('/recipes/new',(req, res)=>{
-    res.render('mainpage',{ error: "" });
+    res.render('createRecipe.ejs',{ error: "" });
 });
 
 app.post('/recipes/new', async (req, res) => {
     const errorField = await validateRequestBody(req.body);
     if(errorField) {
-        res.render('mainpage.ejs', { error: errorField });
+        res.render('createRecipe.ejs', { error: errorField });
     } else {
         const imageEncoded = Buffer.from(req.body.image, 'base64');
         const recipe = {
@@ -19,6 +19,7 @@ app.post('/recipes/new', async (req, res) => {
             image: imageEncoded
         }
         await Recipe.create(recipe);
+        res.redirect('/recipes/new');
     }
 });
 
@@ -45,3 +46,6 @@ async function validateRequestBody(requestBody){
     }
     return null;
 }
+app.get('recipe/:recipeId',(req,res)=>{
+
+})
