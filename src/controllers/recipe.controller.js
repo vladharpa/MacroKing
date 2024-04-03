@@ -48,25 +48,27 @@ async function validateRequestBody(requestBody){
     }
     return null;
 }
+
+
 app.get('/recipe/:recipeId', async (req, res) => {
     try {
         const { recipeId } = req.params;
-        const recipe = await Recipe.findOne({ _id: recipeId }); 
-        
+        const recipe = await Recipe.findOne({ _id: recipeId }); // 
+        console.log({...recipe.toObject()})
         if (!recipe) {
             return res.status(404).send('Recipe not found');
         }
 
         const decodedImg = Buffer.from(recipe.image, 'base64').toString('binary');
-        console.log(decodedImg)
-        const extension = getFileExtension(recipe.image);
-        console.log(extension)
-        res.render('recipe.ejs', { ...recipe.toObject(),extension:extension});
+
+        res.render('recipe.ejs', { ...recipe.toObject(), image: decodedImg });
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');
     }
 });
+
+
 function getFileExtension(filename) {
     return filename.split('.').pop();
 }
