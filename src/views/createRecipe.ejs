@@ -12,7 +12,7 @@
     <img id="backgroundImg" src="/images/background.jpg">
     <%- include('SimpleNavbar.ejs') %>
     <div class="interesting-shape"> 
-        <form class="form-horizontal form-group" action="/recipes/new" method="post" name="recipe">
+        <form class="form-horizontal form-group" action="/recipes/new" method="post" name="recipe" enctype="multipart/form-data">
             
             <h2 class="formelement">Insert recipe</h2>
             <label class="formelement">
@@ -35,7 +35,7 @@
                 Macronutrients:
             </label>
             <textarea class="form-control formelement" name="macronutrients"></textarea>
-            <input id="choose-file" class="formelement" type="file" placeholder='upload a photo' name="image">
+            <input id="choose-file" class="formelement" type="file" accept="image/*" placeholder='upload a photo' name="image">
             <input id="create-btn" class="form-control formelement btn btn-primary mb-2"  type="submit" value="Create recipe">
             <% if (error) { %>    
                 <div class="alert alert-warning error fade show" role="alert">Please complete the <%= error %> field!</div>      

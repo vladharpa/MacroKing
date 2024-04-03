@@ -6,7 +6,7 @@ const recipeSchema = new Schema({
     preparationmode:String,
     calories:Number,
     macronutrients:String,
-    image:Buffer,
+    image:String,
 })
 
-export const Recipe=new model('recipies',recipeSchema);
+export const Recipe=new model('recipies', recipeSchema);

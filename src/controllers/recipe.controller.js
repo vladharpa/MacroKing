@@ -1,31 +1,27 @@
 import { Recipe } from "../models/recipe.model.js";
 import { app } from "../config/express.js";
-import  path  from "path";
-const fileDirectory = path.resolve('src','views');
+import { upload } from "../config/fileUpload.js";
 const EMPTY_STRING = "";
-import { Buffer } from 'buffer';
-import { decode } from "punycode";
 
 app.get('/recipes/new',(req, res)=>{
     res.render('createRecipe.ejs',{ error: "" });
 });
 
-app.post('/recipes/new', async (req, res) => {
+app.post('/recipes/new', upload.single('image'), async (req, res) => {
     const errorField = await validateRequestBody(req.body);
     if(errorField) {
         res.render('createRecipe.ejs', { error: errorField });
     } else {
-        const imageEncoded = Buffer.from(req.body.image).toString('base64');
-        const recipe = {
+        const imageEncoded = Buffer.from(req.file.buffer).toString('base64');
+        const recipe = await Recipe.create({
             ...req.body,
             image: imageEncoded
-        }
-        await Recipe.create(recipe);
-        res.redirect('/recipes/new');
+        });
+        res.redirect(`/recipes/${recipe.id}`);
     }
 });
 
-async function validateRequestBody(requestBody){
+function validateRequestBody(requestBody){
     let { name, ingredients, preparationmode, calories, macronutrients, image } = requestBody;
 
     if (name === EMPTY_STRING) {
@@ -50,18 +46,14 @@ async function validateRequestBody(requestBody){
 }
 
 
-app.get('/recipe/:recipeId', async (req, res) => {
+app.get('/recipes/:recipeId', async (req, res) => {
     try {
         const { recipeId } = req.params;
-        const recipe = await Recipe.findOne({ _id: recipeId }); // 
-        console.log({...recipe.toObject()})
+        const recipe = await Recipe.findOne({ _id: recipeId });
         if (!recipe) {
             return res.status(404).send('Recipe not found');
         }
-
-        const decodedImg = Buffer.from(recipe.image, 'base64').toString('binary');
-
-        res.render('recipe.ejs', { ...recipe.toObject(), image: decodedImg });
+        res.render('recipe.ejs', { recipe });
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');
