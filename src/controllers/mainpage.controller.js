@@ -4,11 +4,11 @@ import  path  from "path";
 const fileDirectory = path.resolve('src','views');
 const EMPTY_STRING = "";
 
-app.get('/mainpage',(req, res)=>{
+app.get('/recipes/new',(req, res)=>{
     res.render('mainpage',{ error: "" });
 });
 
-app.post('/mainpage', async (req, res) => {
+app.post('/recipes/new', async (req, res) => {
     const errorField = await validateRequestBody(req.body);
     if(errorField) {
         res.render('mainpage.ejs', { error: errorField });
