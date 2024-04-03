@@ -3,6 +3,8 @@ import { app } from "../config/express.js";
 import  path  from "path";
 const fileDirectory = path.resolve('src','views');
 const EMPTY_STRING = "";
+import { Buffer } from 'buffer';
+import { decode } from "punycode";
 
 app.get('/recipes/new',(req, res)=>{
     res.render('createRecipe.ejs',{ error: "" });
@@ -13,7 +15,7 @@ app.post('/recipes/new', async (req, res) => {
     if(errorField) {
         res.render('createRecipe.ejs', { error: errorField });
     } else {
-        const imageEncoded = Buffer.from(req.body.image, 'base64');
+        const imageEncoded = Buffer.from(req.body.image).toString('base64');
         const recipe = {
             ...req.body,
             image: imageEncoded
@@ -46,6 +48,25 @@ async function validateRequestBody(requestBody){
     }
     return null;
 }
-app.get('recipe/:recipeId',(req,res)=>{
+app.get('/recipe/:recipeId', async (req, res) => {
+    try {
+        const { recipeId } = req.params;
+        const recipe = await Recipe.findOne({ _id: recipeId }); 
+        
+        if (!recipe) {
+            return res.status(404).send('Recipe not found');
+        }
 
-})
+        const decodedImg = Buffer.from(recipe.image, 'base64').toString('binary');
+        console.log(decodedImg)
+        const extension = getFileExtension(recipe.image);
+        console.log(extension)
+        res.render('recipe.ejs', { ...recipe.toObject(),extension:extension});
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+function getFileExtension(filename) {
+    return filename.split('.').pop();
+}

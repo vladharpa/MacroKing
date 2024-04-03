@@ -9,42 +9,11 @@
         <link href ="/css/mainpage.css" rel="stylesheet">
     </head>
 <body>
-    <img id="backgroundImg" src="/images/background.jpg">
     <%- include('SimpleNavbar.ejs') %>
+    <img id="backgroundImg" src="/images/background.jpg">
+    
     <div class="interesting-shape"> 
-        <form class="form-horizontal form-group" action="/recipes/new" method="post" name="recipe">
-            
-            <h2 class="formelement">Insert recipe</h2>
-            <label class="formelement">
-                Name:
-            </label>
-                <input class="formelement form-control" id="inputEmail3"type="text" name="name">
-            <label class="formelement">
-               Ingredients:  
-            </label>
-            <textarea class="form-control formelement"  name="ingredients" rows="5" cols="20"></textarea>
-            <label class="formelement">
-                Preparation mode:
-            </label>
-            <textarea class="form-control formelement" name="preparationmode" rows="10" cols="40"></textarea>
-            <label class="formelement">
-                KiloCalories:
-            </label>
-            <input class="form-control formelement" type="text" name="calories">
-            <label class="formelement">
-                Macronutrients:
-            </label>
-            <textarea class="form-control formelement" name="macronutrients"></textarea>
-            <input id="choose-file" class="formelement" type="file" placeholder='upload a photo' name="image">
-            <input id="create-btn" class="form-control formelement btn btn-primary mb-2"  type="submit" value="Create recipe">
-            <% if (error) { %>    
-                <div class="alert alert-warning error fade show" role="alert">Please complete the <%= error %> field!</div>      
-            <% } %>
-            
-                     
-                 
-         
-        </form>
+        <img src="data:image/jpg;base64,<%=image%>" width="200px" height="200px">
     </div> 
         <h1 class="backgroundTitle">Create your own recipies.<br>Counting calories <br>doesn't have to be <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hard!</h1>
         

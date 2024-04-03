@@ -3,8 +3,8 @@ import {Schema,model} from 'mongoose';
 const recipeSchema = new Schema({
     name:String,
     ingredients:String,
-    preparation:String,
-    kcalories:Number,
+    preparationmode:String,
+    calories:Number,
     macronutrients:String,
     image:Buffer,
 })
