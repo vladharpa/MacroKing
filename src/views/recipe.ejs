@@ -13,15 +13,15 @@
     <%- include('SimpleNavbar.ejs') %>
     <img id="backgroundImg" src="/images/background.jpg">
     
-    <div class="interesting-shape"> 
-        <ul>
+    <div id="interesting-shape"> 
+        
             <h1 class="list-elements"><%= recipe.name %></h1>
             <img class="list-elements" src="data:image/jpeg;base64,<%= recipe.image %>" width="200px" height="200px">
-            <p class="list-elements"><li><%= recipe.ingredients %></li></p>
-            <p class="list-elements"><li><%= recipe.preparationmode %></li></p>
-            <p class="list-elements"><li><%= recipe.macronutrients%><br><%= recipe.calories %></li></p>
+            <p class="list-elements"><%= recipe.ingredients %></p>
+            <p class="list-elements"><%= recipe.preparationmode %></p>
+            <p class="list-elements"><%= recipe.macronutrients%><br><%= recipe.calories %></p>
             
-        </ul>
+        
         
     </div> 
         <h1 class="backgroundTitle">Create your own recipies.<br>Counting calories <br>doesn't have to be <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hard!</h1>

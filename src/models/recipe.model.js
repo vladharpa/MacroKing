@@ -2,9 +2,9 @@ import {Schema,model} from 'mongoose';
 
 const recipeSchema = new Schema({
     name:String,
-    ingredients:String,
+    ingredients:[String],
     preparationmode:String,
-    calories:Number,
+    calories:String,
     macronutrients:String,
     image:String,
 })

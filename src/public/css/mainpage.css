@@ -63,7 +63,7 @@ h2.formelement{
     font-family: 'EB Garamond';
     
 }
-.interesting-shape {
+#interesting-shape {
     width: 500px;
     height: 900px;
     background-color: #0E0E18; /* Darker shade of black */
@@ -76,5 +76,19 @@ h2.formelement{
     width:30%;
     position:relative;
     margin-left:20px;
+  }
+  .newIngredient{
+    margin-top:10px;
+    width:220px;
+    height:30px;
+    display:block;
+  }
+  #addIngredient{
+    width:150px;
+    height:30px;
+  }
+  .ingredientsBackground{
+    position:relative;
+    right:600px;
   }
   

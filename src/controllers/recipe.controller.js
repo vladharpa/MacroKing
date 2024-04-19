@@ -23,15 +23,21 @@ app.post('/recipes/new', upload.single('image'), async (req, res) => {
 
 function validateRequestBody(requestBody){
     let { name, ingredients, preparationmode, calories, macronutrients, image } = requestBody;
-
+    
     if (name === EMPTY_STRING) {
         return `name`;
     }
-    if (ingredients === EMPTY_STRING) {
-        return `ingredients`;
-    } 
+    for(let x of ingredients){
+        console.log(x);
+        if(x === EMPTY_STRING){
+            return `ingredients`;
+        }
+        
+    }
+        
+     
     if (preparationmode === EMPTY_STRING) {
-        return error
+        return `preparationmode`;
     }
     if (calories === EMPTY_STRING) {
         return `calories`;
