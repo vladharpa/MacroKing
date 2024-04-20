@@ -97,6 +97,19 @@ h2.formelement{
     position:relative;
     left:231px;
     bottom:30px;
+    border-radius:5px;
+    border: 1px solid #ccc;
+    transition: all 0.2s ;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background:no-repeat center/100% url("/images/deleteIcon.png");
     
   }
+  
+
+.removeBtn:hover {
+  transform: scale(1.1);
+}
+
+
   

@@ -4,7 +4,7 @@
         addInput();
 
     });
-    
+    let i=0;
     function addInput(){
         
         let div = document.getElementById("interesting-shape");
@@ -13,12 +13,33 @@
         div.style.height = newHeight + "px";
         let field=document.createElement("input");
         field.type="text";
-        field.name="ingredients[]";
+        field.style.color="black";
+        field.name=`ingredients[${i}]`;
         field.classList.add("newIngredient");
-        let btnRemove=document.createElement('button');
+        let btnRemove=document.createElement('img');
         btnRemove.classList.add('removeBtn');
+        btnRemove.name=`ingredients[${i}]`;
+        
         btn.insertAdjacentElement("afterend",btnRemove);
         btn.insertAdjacentElement("afterend",field);
-    }  
+        i++;
+        
+    }
+   const form = document.getElementsByTagName('form')
+   form[0].addEventListener('click',(evt)=>{
+    evt.preventDefault();
+    const inputArray=document.getElementsByClassName('newIngredient');
+    console.log()
+    for(let x of inputArray){
+        if(x.name==evt.target.name && evt.target.tagName=="IMG"){
+            console.log(x.name)
+            x.remove();
+            evt.target.remove();
+           i--;
+        }
+    }
+    
+   });
+
 
 
