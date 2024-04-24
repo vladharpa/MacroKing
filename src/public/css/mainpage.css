@@ -1,0 +1,115 @@
+html{
+  overflow: hidden;
+  overflow-y:scroll;
+  height:100vh
+}
+body{
+    height:100%;
+}
+#backgroundImg{ 
+    width:100%;
+    height:1500px;
+    z-index:-10000;
+    position:absolute;
+}
+
+.formelement,.error{
+    display:block;
+    width:200px;
+    margin-top:5px;
+    position:relative;
+    
+}
+form{
+    position:relative;
+    left:150px;
+    top:50px;
+}
+label{
+    font-family: 'Gill Sans, sans-serif';
+    color:white;
+}
+p{
+    margin-left:60px;
+    color:rgb(255, 255, 255);
+}
+.error{
+    width:330px;
+    height:55px;
+    margin-top:10px;
+    margin-bottom:0px;
+}
+#choose-file{
+    width:250;
+    border-radius:5px;
+}
+.backgroundTitle{
+    font-size:60px;
+    color:white;
+    position:absolute;
+    left:30px;
+    top:500px;
+    font-family: 'EB Garamond'
+}
+#titlu{
+    font-family: 'EB Garamond';
+    font-size:30px;
+}
+#avocado{
+    margin-left:50px;
+}
+h2.formelement{
+    color:white;
+    font-family: 'EB Garamond';
+    
+}
+#interesting-shape {
+    width: 500px;
+    height: 900px;
+    background-color: #0E0E18; /* Darker shade of black */
+    position:absolute;
+    top:250px;
+    right:200px;
+    border-radius:10px;
+  }
+  #create-btn{
+    width:30%;
+    position:relative;
+    margin-left:20px;
+  }
+  .newIngredient{
+    margin-top:10px;
+    width:220px;
+    height:30px;
+    display:block;
+  }
+  #addIngredient{
+    width:150px;
+    height:30px;
+  }
+  .ingredientsBackground{
+    position:relative;
+    right:600px;
+  }
+  .removeBtn{
+    width:30px;
+    height:30px;
+    position:relative;
+    left:231px;
+    bottom:30px;
+    border-radius:5px;
+    border: 1px solid #ccc;
+    transition: all 0.2s ;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background:no-repeat center/100% url("/images/deleteIcon.png");
+    
+  }
+  
+
+.removeBtn:hover {
+  transform: scale(1.1);
+}
+
+
+  
